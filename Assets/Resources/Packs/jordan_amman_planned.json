@@ -1,0 +1,38 @@
+{
+ "id": "jo_amman_v0",
+ "packVersion": "0.0.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "حضارات متعاقبة",
+  "en": "Successive civilizations"
+ },
+ "yearFrom": -1000,
+ "yearTo": 700,
+ "periodConfidence": "approximate",
+ "status": "planned",
+ "sites": [
+  {
+   "id": "amman_citadel",
+   "name": {
+    "ar": "جبل القلعة – عمّان",
+    "en": "Amman Citadel"
+   },
+   "siteType": "citadel",
+   "summary": {
+    "ar": "قيد التطوير: لم تُجهَّز أصول هذا الموقع بعد.",
+    "en": "In development: this site's assets are not prepared yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "references": []
+  }
+ ]
+}

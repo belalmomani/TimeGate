@@ -1,0 +1,100 @@
+{
+ "id": "jo_nabataean_v1",
+ "packVersion": "0.1.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "الأنباط",
+  "en": "Nabataeans"
+ },
+ "yearFrom": -100,
+ "yearTo": 100,
+ "periodConfidence": "approximate",
+ "status": "playable",
+ "sites": [
+  {
+   "id": "petra",
+   "name": {
+    "ar": "البتراء",
+    "en": "Petra"
+   },
+   "siteType": "ancient_city",
+   "summary": {
+    "ar": "البتراء مدينة نبطية قديمة جنوب الأردن، كانت مركزًا رئيسيًا لمملكة الأنباط وملتقى لطرق التجارة، وأُدرجت في قائمة التراث العالمي لليونسكو عام 1985.",
+    "en": "Petra is an ancient Nabataean city in southern Jordan, a major centre of the Nabataean kingdom and a hub of trade routes. It was inscribed on the UNESCO World Heritage List in 1985."
+   },
+   "confidence": "documented",
+   "playable": true,
+   "worldBuilder": "petra_v1",
+   "pois": [
+    {
+     "id": "petra_siq",
+     "name": {
+      "ar": "السيق",
+      "en": "The Siq"
+     },
+     "summary": {
+      "ar": "السيق شقّ صخري طبيعي ضيق، طوله نحو 1.2 كم، يُعدّ المدخل الرئيسي الشرقي إلى قلب المدينة. العالم الذي تراه هنا إعادة بناء فنية مبسّطة وليست نموذجًا دقيقًا للموقع.",
+      "en": "The Siq is a narrow natural gorge, roughly 1.2 km long, forming the main eastern entrance to the heart of the city. The corridor you see here is a simplified artistic reconstruction, not an accurate model of the site."
+     },
+     "confidence": "artistic_reconstruction",
+     "x": -17.95,
+     "y": 4.0,
+     "z": -60.0,
+     "radius": 26.0
+    },
+    {
+     "id": "petra_khazneh",
+     "name": {
+      "ar": "الخزنة",
+      "en": "Al-Khazneh (The Treasury)"
+     },
+     "summary": {
+      "ar": "الخزنة واجهة منحوتة في الصخر الوردي، يُرجَّح أنها تعود إلى القرن الأول قبل الميلاد أو القرن الأول الميلادي، ويرى كثير من الباحثين أنها ضريح ملكي. اسمها مستمد من رواية شعبية عن كنز مخبّأ، وتاريخها ووظيفتها محل نقاش. المجسّم هنا تقريبي مبني من أشكال أولية.",
+      "en": "Al-Khazneh is a facade carved into rose-coloured rock, generally dated to around the 1st century BCE or 1st century CE; many scholars consider it a royal tomb. Its name comes from a folk tale of hidden treasure, and its exact date and function remain debated. The model here is an approximate construction from primitive shapes."
+     },
+     "confidence": "approximate",
+     "x": 0.0,
+     "y": 5.0,
+     "z": 138.0,
+     "radius": 24.0
+    }
+   ],
+   "quests": [
+    {
+     "id": "petra_walk_siq",
+     "title": {
+      "ar": "من السيق إلى الخزنة",
+      "en": "From the Siq to the Treasury"
+     },
+     "hint": {
+      "ar": "حلّق عبر السيق وافحص معلمين تاريخيين.",
+      "en": "Fly through the Siq and inspect two landmarks."
+     },
+     "objectivePoiIds": [
+      "petra_siq",
+      "petra_khazneh"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "title": "UNESCO World Heritage Centre — Petra",
+     "url": "https://whc.unesco.org/en/list/326",
+     "retrieved": "",
+     "verified": false
+    },
+    {
+     "title": "Encyclopaedia Britannica — Petra",
+     "url": "https://www.britannica.com/place/Petra-ancient-city-Jordan",
+     "retrieved": "",
+     "verified": false
+    }
+   ]
+  }
+ ]
+}

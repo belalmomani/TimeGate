@@ -1,0 +1,38 @@
+{
+ "id": "jo_roman_v0",
+ "packVersion": "0.0.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "الرومان",
+  "en": "Romans"
+ },
+ "yearFrom": -63,
+ "yearTo": 400,
+ "periodConfidence": "approximate",
+ "status": "planned",
+ "sites": [
+  {
+   "id": "jerash",
+   "name": {
+    "ar": "جرش القديمة",
+    "en": "Ancient Jerash"
+   },
+   "siteType": "ancient_city",
+   "summary": {
+    "ar": "قيد التطوير: لم تُجهَّز أصول هذا الموقع بعد.",
+    "en": "In development: this site's assets are not prepared yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "references": []
+  }
+ ]
+}
