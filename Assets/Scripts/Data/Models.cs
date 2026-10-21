@@ -11,11 +11,17 @@ namespace TimeGate.Data
         public float x, y, z, radius;
     }
     [Serializable] public class QuestDef { public string id; public LocalizedText title; public LocalizedText hint; public List<string> objectivePoiIds; }
+    [Serializable] public class TopicDef { public List<string> keywords; public LocalizedText question; public LocalizedText answer; public string confidence; }
+    [Serializable] public class CharacterDef
+    {
+        public string id; public LocalizedText name; public LocalizedText role; public LocalizedText greeting; public LocalizedText fallback;
+        public float x, z, radius; public List<TopicDef> topics;
+    }
     [Serializable] public class SiteDef
     {
         public string id; public LocalizedText name; public string siteType; public LocalizedText summary;
         public string confidence; public bool playable; public string worldBuilder;
-        public List<PoiDef> pois; public List<QuestDef> quests; public List<ReferenceDef> references;
+        public List<PoiDef> pois; public List<CharacterDef> characters; public List<QuestDef> quests; public List<ReferenceDef> references;
     }
     [Serializable] public class PackManifest
     {

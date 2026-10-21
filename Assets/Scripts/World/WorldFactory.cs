@@ -4,11 +4,13 @@ using UnityEngine;
 using TimeGate.Data;
 namespace TimeGate.World
 {
+    public class NpcRuntime { public CharacterDef def; public Transform t; }
     public class PoiRuntime { public PoiDef def; public Vector3 pos; }
     public class WorldResult
     {
         public GameObject root; public Vector3 spawn; public float spawnYaw; public Bounds bounds;
         public List<PoiRuntime> pois = new List<PoiRuntime>();
+        public List<NpcRuntime> npcs = new List<NpcRuntime>();
     }
     public static class WorldFactory
     {

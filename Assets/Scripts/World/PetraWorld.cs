@@ -80,6 +80,12 @@ namespace TimeGate.World
             float sz = -168f; res.spawn = new Vector3(CenterX(sz), Height(CenterX(sz), sz) + 6f, sz); res.spawnYaw = 0f;
             res.bounds = new Bounds(new Vector3(0, 55, 0), new Vector3(SizeX - 4f, 120f, SizeZ - 4f));
             if (site.pois != null) foreach (var p in site.pois) res.pois.Add(new PoiRuntime { def = p, pos = new Vector3(p.x, p.y, p.z) });
+            if (site.characters != null)
+                foreach (var c in site.characters)
+                {
+                    var t = NpcBuilder.Build(c, new Vector3(c.x, Height(c.x, c.z), c.z), root.transform);
+                    res.npcs.Add(new NpcRuntime { def = c, t = t });
+                }
             return res;
         }
 

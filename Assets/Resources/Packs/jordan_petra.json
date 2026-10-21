@@ -94,6 +94,150 @@
      "retrieved": "",
      "verified": false
     }
+   ],
+   "characters": [
+    {
+     "id": "petra_merchant",
+     "name": {
+      "ar": "تاجر نبطي",
+      "en": "A Nabataean merchant"
+     },
+     "role": {
+      "ar": "تاجر قوافل",
+      "en": "Caravan trader"
+     },
+     "greeting": {
+      "ar": "مرحبًا أيها الزائر العابر للزمن. أنا شخصية تخيلية لتاجر نبطي، وما أقوله إعادة صياغة لمعلومات تاريخية عامة وليس كلامًا موثقًا لشخص حقيقي.",
+      "en": "Welcome, traveller through time. I am a fictional Nabataean merchant; what I say is a retelling of general historical information, not the documented words of a real person."
+     },
+     "fallback": {
+      "ar": "ليس عندي جواب موثوق عن هذا السؤال. جرّب أحد الأسئلة المقترحة.",
+      "en": "I have no reliable answer to that. Try one of the suggested questions."
+     },
+     "x": 8.0,
+     "z": 118.0,
+     "radius": 10.0,
+     "topics": [
+      {
+       "keywords": [
+        "انباط",
+        "نبط",
+        "من هم"
+       ],
+       "question": {
+        "ar": "من هم الأنباط؟",
+        "en": "Who were the Nabataeans?"
+       },
+       "answer": {
+        "ar": "الأنباط شعب عربي قديم أسسوا مملكة جنوب بلاد الشام وشمال الجزيرة العربية، وكانت البتراء عاصمتهم ومركزهم التجاري.",
+        "en": "The Nabataeans were an ancient Arab people who built a kingdom in the southern Levant and northern Arabia, with Petra as their capital and trade centre."
+       },
+       "confidence": "documented"
+      },
+      {
+       "keywords": [
+        "تجار",
+        "قوافل",
+        "لبان",
+        "بخور",
+        "توابل"
+       ],
+       "question": {
+        "ar": "بماذا اشتهرت تجارتكم؟",
+        "en": "What was your trade known for?"
+       },
+       "answer": {
+        "ar": "اشتُهر الأنباط بتجارة القوافل، ومنها اللبان والبخور والتوابل، بين الجزيرة العربية والبحر المتوسط.",
+        "en": "The Nabataeans were known for caravan trade, including incense and spices, linking Arabia with the Mediterranean."
+       },
+       "confidence": "documented"
+      },
+      {
+       "keywords": [
+        "ماء",
+        "مياه",
+        "سدود",
+        "صهاريج",
+        "قنوات"
+       ],
+       "question": {
+        "ar": "كيف وفّرتم الماء في الصحراء؟",
+        "en": "How did you get water in the desert?"
+       },
+       "answer": {
+        "ar": "بنى الأنباط قنوات وسدودًا وصهاريج لجمع المياه وتخزينها وتوجيهها إلى المدينة.",
+        "en": "The Nabataeans built channels, dams and cisterns to collect, store and direct water to the city."
+       },
+       "confidence": "documented"
+      },
+      {
+       "keywords": [
+        "سيق",
+        "شق",
+        "ممر"
+       ],
+       "question": {
+        "ar": "ما السيق؟",
+        "en": "What is the Siq?"
+       },
+       "answer": {
+        "ar": "السيق شق صخري طبيعي طوله نحو 1.2 كم، وهو المدخل الرئيسي إلى قلب البتراء، وتمتد على جانبيه قنوات مياه منحوتة.",
+        "en": "The Siq is a natural gorge about 1.2 km long, the main entrance to the heart of Petra, with carved water channels along its sides."
+       },
+       "confidence": "documented"
+      },
+      {
+       "keywords": [
+        "خزنه",
+        "الخزنه",
+        "كنز"
+       ],
+       "question": {
+        "ar": "ما الخزنة؟",
+        "en": "What is the Treasury?"
+       },
+       "answer": {
+        "ar": "الخزنة واجهة منحوتة في الصخر يُرجَّح أنها من القرن الأول قبل الميلاد أو الأول الميلادي، ويرى كثيرون أنها ضريح ملكي، وتاريخها ووظيفتها محل نقاش.",
+        "en": "The Treasury is a rock-carved facade probably from the 1st century BCE or CE; many think it was a royal tomb, and its date and purpose are debated."
+       },
+       "confidence": "approximate"
+      },
+      {
+       "keywords": [
+        "رومان",
+        "نهايه",
+        "سقطت",
+        "ضم"
+       ],
+       "question": {
+        "ar": "ماذا حدث لمملكتكم؟",
+        "en": "What happened to your kingdom?"
+       },
+       "answer": {
+        "ar": "ضمّت الإمبراطورية الرومانية المملكة النبطية عام 106 للميلاد وجعلتها جزءًا من ولاية العربية.",
+        "en": "The Roman Empire annexed the Nabataean kingdom in 106 CE, making it part of the province of Arabia."
+       },
+       "confidence": "documented"
+      },
+      {
+       "keywords": [
+        "اكتشاف",
+        "بوركهارت",
+        "اعاده",
+        "ضياع"
+       ],
+       "question": {
+        "ar": "متى أعاد الأوروبيون اكتشاف البتراء؟",
+        "en": "When was Petra rediscovered by Europeans?"
+       },
+       "answer": {
+        "ar": "وصل الرحّالة السويسري يوهان لودفيغ بوركهارت إلى البتراء عام 1812، وكان أهل المنطقة يعرفونها قبل ذلك.",
+        "en": "The Swiss traveller Johann Ludwig Burckhardt reached Petra in 1812; local people knew of it long before."
+       },
+       "confidence": "documented"
+      }
+     ]
+    }
    ]
   }
  ]

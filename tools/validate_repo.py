@@ -31,6 +31,10 @@ for p in sorted((root/"Assets/Resources/Packs").glob("*.json")):
         if d["status"]=="playable" and s.get("playable"):
             if s.get("worldBuilder") not in builders: err(f"{p.name}:{s['id']} playable but world builder '{s.get('worldBuilder')}' not registered")
             if not s.get("references"): err(f"{p.name}:{s['id']} playable site without references")
+        for c in s.get("characters",[]):
+            if not c.get("fallback") or not c.get("topics"): err(f"character {c['id']} needs fallback + topics")
+            for tp in c["topics"]:
+                if not tp.get("keywords") or not tp["answer"].get("ar") or not tp["answer"].get("en"): err(f"character {c['id']} topic incomplete")
         poi_ids={x["id"] for x in s.get("pois",[])}
         for q in s.get("quests",[]):
             for o in q["objectivePoiIds"]:

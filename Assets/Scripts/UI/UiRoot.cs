@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using TimeGate.Core;
 using TimeGate.Data;
+using TimeGate.Dialogue;
 using TimeGate.Services;
 using TimeGate.World;
 namespace TimeGate.UI
@@ -268,6 +269,44 @@ namespace TimeGate.UI
             var sc = new ScrollView(ScrollViewMode.Vertical); sc.verticalScrollerVisibility = ScrollerVisibility.Hidden; card.Add(sc);
             sc.Add(Lbl(Loc.Pick(poi.name), 52, Palette.Gold, true)); sc.Add(Lbl("● " + Conf(poi.confidence), 26, Palette.Energy)); sc.Add(Lbl(Loc.Pick(poi.summary), 32));
             if (completed != null) sc.Add(Lbl("★ " + Loc.T("questDone") + ": " + Loc.Pick(completed.title), 34, Palette.Gold, true));
+            card.Add(Btn(Loc.T("close"), () => { popup.RemoveFromHierarchy(); popup = null; onClose(); }));
+        }
+        public void ShowChat(CharacterDef c, DialogueService dlg, Action onClose)
+        {
+            if (popup != null) popup.RemoveFromHierarchy();
+            popup = Abs(); popup.style.backgroundColor = new Color(0, 0, 0, 0.6f); popup.style.alignItems = Align.Center; popup.style.justifyContent = Justify.Center; root.Add(popup); fade.BringToFront();
+            var card = new VisualElement(); card.style.width = 1200; card.style.height = Length.Percent(92); card.style.backgroundColor = Palette.Panel;
+            card.style.paddingTop = card.style.paddingBottom = card.style.paddingLeft = card.style.paddingRight = 28; popup.Add(card);
+            card.Add(Lbl(Loc.Pick(c.name), 44, Palette.Gold, true));
+            card.Add(Lbl(Loc.Pick(c.role) + " — " + Loc.T("fictional"), 24, Palette.Energy));
+            card.Add(Lbl(Loc.T("chatNote"), 20, Color.yellow));
+            var log = new ScrollView(ScrollViewMode.Vertical); log.style.flexGrow = 1; log.style.flexShrink = 1; log.style.marginTop = 8; log.verticalScrollerVisibility = ScrollerVisibility.Hidden; card.Add(log);
+            void Add(string who, string text, Color col)
+            {
+                var l = Lbl(who + ": " + text, 28, col); l.style.marginTop = 8; log.Add(l);
+                log.schedule.Execute(() => log.scrollOffset = new Vector2(0, 100000f));
+            }
+            Add(Loc.Pick(c.name), Loc.Pick(c.greeting), Palette.Gold);
+            void Ask(string q)
+            {
+                if (string.IsNullOrWhiteSpace(q)) return; Add(Loc.T("you"), q, Palette.Text);
+                var (topic, text) = dlg.Answer(c, q);
+                if (topic != null) { Add(Loc.Pick(c.name), text + "  [" + Conf(topic.confidence) + "]", Palette.Gold); return; }
+                if (!ServiceHub.Ai.IsConfigured) { Add(Loc.Pick(c.name), text, Palette.Gold); return; }
+                Add(Loc.Pick(c.name), Loc.T("thinking"), Palette.Gold);
+                app.StartCoroutine(ServiceHub.Ai.Ask(c.id, q, Loc.Lang,
+                    ans => Add(Loc.Pick(c.name), ans + "  [" + Loc.T("aiTag") + "]", Palette.Gold),
+                    err => Add(Loc.Pick(c.name), Loc.T("offlineAi"), Palette.Gold)));
+            }
+            var chips = new VisualElement(); chips.style.flexDirection = Loc.IsRtl ? FlexDirection.RowReverse : FlexDirection.Row; chips.style.flexWrap = Wrap.Wrap; chips.style.marginTop = 8; card.Add(chips);
+            foreach (var t in c.topics) { var q = Loc.Pick(t.question); var chip = SmallBtn(q, () => Ask(q)); chip.style.marginBottom = 6; chips.Add(chip); }
+            var row = new VisualElement(); row.style.flexDirection = Loc.IsRtl ? FlexDirection.RowReverse : FlexDirection.Row; row.style.marginTop = 8; card.Add(row);
+            var tf = new TextField(); tf.maxLength = 200; tf.style.flexGrow = 1; tf.style.fontSize = 28; tf.style.color = Palette.Text; tf.style.minHeight = 70;
+            if (font != null) tf.style.unityFontDefinition = new StyleFontDefinition(FontDefinition.FromFont(font));
+            tf.style.unityTextGenerator = TextGeneratorType.Advanced;
+            row.Add(tf);
+            tf.schedule.Execute(() => { var input = tf.Q(className: "unity-base-text-field__input"); if (input != null) { input.style.backgroundColor = new Color(0.05f, 0.12f, 0.2f, 1f); input.style.color = Palette.Text; } });
+            row.Add(SmallBtn(Loc.T("send"), () => { var q = tf.value; tf.value = ""; Ask(q); }));
             card.Add(Btn(Loc.T("close"), () => { popup.RemoveFromHierarchy(); popup = null; onClose(); }));
         }
         public void SetFade(float a, Color c) { fade.style.backgroundColor = c; fade.style.opacity = a; fade.pickingMode = a > 0.01f ? PickingMode.Position : PickingMode.Ignore; }

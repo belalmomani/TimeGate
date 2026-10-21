@@ -3,6 +3,8 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using TimeGate.Data;
+using TimeGate.Dialogue;
+using TimeGate.Services;
 using TimeGate.Travel;
 using TimeGate.UI;
 using TimeGate.World;
@@ -16,7 +18,7 @@ namespace TimeGate.Core
         Camera cam; FlightCamera flight; GameObject gateRoom; DiceController dice;
         enum State { Gate, Flying } State state;
         SpiritController spirit; SpiritVisual spiritVis; WorldResult world; SiteDef curSite; PackManifest curPack; QuestService quests;
-        PoiRuntime nearPoi; bool busy;
+        PoiRuntime nearPoi; NpcRuntime nearNpc; bool busy; public DialogueService Dialogue = new DialogueService();
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot() { if (I != null) return; var go = new GameObject("TimeGateApp"); DontDestroyOnLoad(go); go.AddComponent<GameApp>(); }
@@ -24,7 +26,7 @@ namespace TimeGate.Core
         void Awake()
         {
             I = this; Screen.sleepTimeout = SleepTimeout.NeverSleep;
-            Save.Load(); Loc.Lang = Save.Data.language; Registry.Load(); Travel = new TravelService(Registry);
+            Save.Load(); Loc.Lang = Save.Data.language; Registry.Load(); ServiceHub.LoadRuntimeConfig(); Travel = new TravelService(Registry);
             var cgo = new GameObject("Main Camera"); cgo.tag = "MainCamera"; cam = cgo.AddComponent<Camera>(); cgo.AddComponent<AudioListener>();
             cam.nearClipPlane = 0.1f; cam.farClipPlane = 1500f; cam.fieldOfView = 62f; cam.clearFlags = CameraClearFlags.Skybox; cam.backgroundColor = Palette.Night;
             flight = cgo.AddComponent<FlightCamera>(); flight.enabled = false;
@@ -54,9 +56,10 @@ namespace TimeGate.Core
             if (state == State.Gate) { cam.transform.position = new Vector3(Mathf.Sin(Time.time * 0.25f) * 1.2f, 3f + Mathf.Sin(Time.time * 0.17f) * 0.3f, -12f); return; }
             if (state != State.Flying || spirit == null) return;
             // nearest POI
-            nearPoi = null; float best = float.MaxValue;
-            foreach (var p in world.pois) { float d = Vector3.Distance(spirit.transform.position, p.pos); if (d <= p.def.radius && d < best) { best = d; nearPoi = p; } }
-            Ui.SetInteract(nearPoi != null ? Loc.Pick(nearPoi.def.name) : null);
+            nearPoi = null; nearNpc = null; float best = float.MaxValue; string label = null;
+            foreach (var p in world.pois) { float d = Vector3.Distance(spirit.transform.position, p.pos); if (d <= p.def.radius && d < best) { best = d; nearPoi = p; label = Loc.Pick(p.def.name); } }
+            foreach (var n in world.npcs) { float d = Vector3.Distance(spirit.transform.position, n.t.position); if (d <= n.def.radius && d < best) { best = d; nearNpc = n; nearPoi = null; label = Loc.Pick(n.def.name); } }
+            Ui.SetInteract(label);
             Ui.SetToast(spirit.Clamped ? Loc.T("edge") : "");
             var q = quests.Active; if (q != null) { var pr = quests.Progress(q); Ui.SetQuest(Loc.T("quest") + ": " + Loc.Pick(q.title) + " (" + pr.done + "/" + pr.total + ")"); } else Ui.SetQuest("★ " + Loc.T("questDone"));
         }
@@ -90,7 +93,9 @@ namespace TimeGate.Core
 
         public void InteractNearest()
         {
-            if (nearPoi == null || spirit == null) return;
+            if (spirit == null) return;
+            if (nearNpc != null) { spirit.frozen = true; TouchInput.Reset(); Ui.ShowChat(nearNpc.def, Dialogue, () => { if (spirit != null) spirit.frozen = false; }); return; }
+            if (nearPoi == null) return;
             var poi = nearPoi.def; var completed = quests.Inspect(poi); spirit.frozen = true; TouchInput.Reset();
             Ui.ShowPoi(poi, completed, () => { if (spirit != null) spirit.frozen = false; });
         }
