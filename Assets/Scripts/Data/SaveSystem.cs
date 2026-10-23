@@ -8,6 +8,10 @@ namespace TimeGate.Data
     [Serializable] public class SaveData
     {
         public int schemaVersion = 1;
+        public string updatedUtc = "";
+        public float volume = 1f;
+        public int adsConsent = 0;   // 0 unknown, 1 granted, 2 declined
+        public int tripsSinceAd = 0;
         public string language = "ar";
         public string lastSiteId = "";
         public List<VisitRecord> visits = new List<VisitRecord>();
@@ -52,6 +56,7 @@ namespace TimeGate.Data
 
         public void Save()
         {
+            Data.updatedUtc = DateTime.UtcNow.ToString("o");
             try
             {
                 var tmp = Path_ + ".tmp";
@@ -68,6 +73,21 @@ namespace TimeGate.Data
             Data.visits.Add(new VisitRecord { packId = packId, siteId = siteId, utc = DateTime.UtcNow.ToString("o") });
             if (Data.visits.Count > 200) Data.visits.RemoveAt(0);
             Data.lastSiteId = siteId; Save();
+        }
+        /// Conflict policy: union of progress (nothing is ever lost); settings come from whichever side was saved last.
+        public void MergeFrom(SaveData r)
+        {
+            if (r == null) return;
+            foreach (var f in r.favorites) if (!Data.favorites.Contains(f)) Data.favorites.Add(f);
+            foreach (var f in r.inspectedPois) if (!Data.inspectedPois.Contains(f)) Data.inspectedPois.Add(f);
+            foreach (var f in r.completedQuests) if (!Data.completedQuests.Contains(f)) Data.completedQuests.Add(f);
+            var seen = new HashSet<string>(); foreach (var v in Data.visits) seen.Add(v.packId + "|" + v.siteId + "|" + v.utc);
+            foreach (var v in r.visits) if (seen.Add(v.packId + "|" + v.siteId + "|" + v.utc)) Data.visits.Add(v);
+            Data.visits.Sort((a, b) => string.CompareOrdinal(a.utc, b.utc));
+            if (Data.visits.Count > 200) Data.visits.RemoveRange(0, Data.visits.Count - 200);
+            if (string.CompareOrdinal(r.updatedUtc, Data.updatedUtc) > 0)
+            { Data.language = r.language; Data.sensitivity = r.sensitivity; Data.invertY = r.invertY; Data.reduceEffects = r.reduceEffects; Data.quality = r.quality; Data.volume = r.volume; Data.lastSiteId = r.lastSiteId; }
+            Save();
         }
         public bool IsFavorite(string siteId) => Data.favorites.Contains(siteId);
         public void ToggleFavorite(string siteId)

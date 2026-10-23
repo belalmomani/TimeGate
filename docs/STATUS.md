@@ -13,6 +13,7 @@ Unity 6 LTS: Start.io and Firebase both ship Unity SDKs, GameCI builds APKs on G
 - Save system (schema-versioned, atomic write, backups, never auto-deletes), quest service (inspect POIs → quest completes once).
 - Petra prototype: procedural Siq canyon + plaza, Treasury facade from primitives, 2 POIs, 1 quest, procedural wind. **Placeholder geometry = artistic reconstruction**, labelled in-app.
 - Characters + chat: placeholder NPC (Nabataean merchant, primitives, labelled fictional), offline reviewed dialogue (7 topics, Arabic normalisation), optional AI proxy client (https only, rate limited, answers tagged AI-generated) — contract in docs/AI_PROXY.md. Source only, uncompiled.
+- Jerash prototype (Hadrian's Arch, Oval Plaza, Cardo, Temple of Artemis; primitives, 4 POIs, 1 quest); travel by year; achievements; volume; Firebase/Supabase REST; ad policy + consent. All source-only.
 - Icons: Android mipmaps + adaptive foreground + Play 512 (branding/), 1024 source in Assets/Icons.
 - CI workflow, validator (`python3 tools/validate_repo.py` → passes), Supabase SQL (untested), docs.
 
@@ -27,7 +28,7 @@ Unity 6 LTS: Start.io and Firebase both ship Unity SDKs, GameCI builds APKs on G
 3. Android keystore (same as your other app is NOT required; make a new one and keep it forever).
 4. Firebase `google-services.json`, Supabase URL + anon key, Start.io App ID, AI proxy URL.
 5. Licensed assets: none downloaded (see docs/ASSETS.md). Reference URLs in the Petra pack are marked `verified:false` until checked.
-6. Not yet implemented: skeletal/animated characters (need licensed model), voice, 'by year' travel, pack download manager, Jerash/Amman worlds, ads/Firebase/Supabase wiring, audio mixer, localization of tutorial, achievements screen.
+6. Not yet implemented: skeletal/animated characters (need licensed model), voice, 'by year' travel, Amman world, ads/Firebase/Supabase wiring, audio mixer, localization of tutorial, achievements screen.
 7. Arabic text relies on Unity 6 UI Toolkit advanced text generator + bundled DejaVu Sans; verify shaping on device.
 
 ## Next step

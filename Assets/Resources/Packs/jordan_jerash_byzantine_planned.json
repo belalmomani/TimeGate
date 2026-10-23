@@ -1,0 +1,135 @@
+{
+ "id": "jo_jerash_byzantine_v0",
+ "packVersion": "0.0.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "البيزنطيون",
+  "en": "Byzantines"
+ },
+ "yearFrom": 324,
+ "yearTo": 636,
+ "periodConfidence": "approximate",
+ "status": "planned",
+ "sites": [
+  {
+   "id": "jerash_church_triple",
+   "name": {
+    "ar": "الكنيسة المثلثة",
+    "en": "The Triple Church (as listed)"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "church_ruins",
+   "summary": {
+    "ar": "كنيسة تعود إلى العصر البيزنطي — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A church from the Byzantine period — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_church_theodore",
+   "name": {
+    "ar": "كنيسة القديس ثيودور",
+    "en": "Church of St. Theodore"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "church_ruins",
+   "summary": {
+    "ar": "كنيسة بيزنطية تاريخية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A historic Byzantine church — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_church_cosmas_damian",
+   "name": {
+    "ar": "كنيسة القديسين قزمان ودميان",
+    "en": "Church of Saints Cosmas and Damian"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "church_ruins",
+   "summary": {
+    "ar": "كنيسة بيزنطية تضم أرضيات فسيفسائية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A Byzantine church with mosaic floors — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_church_john_baptist",
+   "name": {
+    "ar": "كنيسة القديس يوحنا المعمدان",
+    "en": "Church of St. John the Baptist"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "church_ruins",
+   "summary": {
+    "ar": "كنيسة بيزنطية قديمة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "An old Byzantine church — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_cathedral",
+   "name": {
+    "ar": "كاتدرائية جرش",
+    "en": "Jerash Cathedral"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "church_complex",
+   "summary": {
+    "ar": "مجمع ديني مسيحي تاريخي — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A historic Christian religious complex — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  }
+ ]
+}

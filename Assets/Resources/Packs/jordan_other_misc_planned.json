@@ -1,0 +1,66 @@
+{
+ "id": "jo_other_misc_v0",
+ "packVersion": "0.0.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "مواقع أخرى (قيد التحديد)",
+  "en": "Other sites (to be classified)"
+ },
+ "yearFrom": 0,
+ "yearTo": 0,
+ "periodConfidence": "unknown",
+ "status": "planned",
+ "sites": [
+  {
+   "id": "umm_al_jimal",
+   "name": {
+    "ar": "أم الجمال",
+    "en": "Umm al-Jimal"
+   },
+   "region": {
+    "ar": "المفرق (غير مؤكد)",
+    "en": "Mafraq (unconfirmed)"
+   },
+   "siteType": "ancient_town",
+   "summary": {
+    "ar": "بلدة أثرية قديمة في شمال شرق الأردن — اقتراح كُتب بعلامة استفهام ولم يؤكده صاحب المشروع، والوصف من المساعد ويحتاج مراجعة. قيد التطوير.",
+    "en": "An ancient town in north-eastern Jordan — A suggestion marked with a question mark and not confirmed by the project owner; description written by the assistant and needs review. In development."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "karak_castle",
+   "name": {
+    "ar": "قلعة الكرك",
+    "en": "Karak Castle"
+   },
+   "region": {
+    "ar": "الكرك (غير مؤكد)",
+    "en": "Karak (unconfirmed)"
+   },
+   "siteType": "castle",
+   "summary": {
+    "ar": "قلعة تاريخية في محافظة الكرك — اقتراح كُتب بعلامة استفهام ولم يؤكده صاحب المشروع، والوصف من المساعد ويحتاج مراجعة. قيد التطوير.",
+    "en": "A historic castle in Karak governorate — A suggestion marked with a question mark and not confirmed by the project owner; description written by the assistant and needs review. In development."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  }
+ ]
+}

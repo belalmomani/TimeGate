@@ -36,6 +36,7 @@ namespace TimeGate.Core
         public void ApplySettings()
         {
             var d = Save.Data; Application.targetFrameRate = d.quality == 0 ? 30 : 60;
+            AudioListener.volume = Mathf.Clamp01(d.volume);
             QualitySettings.shadows = d.quality == 0 ? ShadowQuality.Disable : ShadowQuality.All;
             QualitySettings.shadowDistance = d.quality == 2 ? 120 : 60;
             if (flight != null) { flight.sensitivity = d.sensitivity; flight.invertY = d.invertY; }
@@ -49,6 +50,7 @@ namespace TimeGate.Core
             if (gateRoom != null) Destroy(gateRoom); gateRoom = GateRoom.Build(out dice);
             cam.clearFlags = CameraClearFlags.SolidColor; cam.transform.SetPositionAndRotation(new Vector3(0, 3f, -12f), Quaternion.LookRotation(new Vector3(0, 4.5f, 3f) - new Vector3(0, 3f, -12f)));
             Ui.ShowHome(); Ui.SetFade(0, Palette.Energy);
+            if (ServiceHub.Ads.IsConfigured && Save.Data.adsConsent == 0) Ui.ShowConsent(ok => { Save.Data.adsConsent = ok ? 1 : 2; Save.Save(); });
         }
 
         void Update()
@@ -82,14 +84,14 @@ namespace TimeGate.Core
             spiritVis = sgo.AddComponent<SpiritVisual>(); spiritVis.Init(Save.Data.reduceEffects);
             spirit = sgo.AddComponent<SpiritController>(); spirit.worldBounds = world.bounds; spirit.safePoint = world.spawn; spirit.cam = flight;
             cam.clearFlags = CameraClearFlags.Skybox; flight.Setup(sgo.transform, spiritVis, world.spawnYaw); flight.enabled = true; flight.sensitivity = Save.Data.sensitivity; flight.invertY = Save.Data.invertY;
-            quests = new QuestService(Save, s); Save.AddVisit(p.id, s.id); state = State.Flying;
+            quests = new QuestService(Save, s); Save.AddVisit(p.id, s.id); Save.Data.tripsSinceAd++; state = State.Flying;
             Ui.ShowHud(); yield return Fade(1, 0, 0.9f); busy = false;
         }
         IEnumerator Fade(float a, float b, float t)
         { for (float k = 0; k < 1f; k += Time.deltaTime / t) { Ui.SetFade(Mathf.Lerp(a, b, k), Color.Lerp(Palette.Energy, Color.white, 0.4f)); yield return null; } Ui.SetFade(b, Palette.Energy); }
 
         public void ReturnToGate() { if (!busy) StartCoroutine(ReturnRoutine()); }
-        IEnumerator ReturnRoutine() { busy = true; TouchInput.Reset(); yield return Fade(0, 1, 0.7f); Ui.HideHud(); ShowGate(); yield return Fade(1, 0, 0.7f); busy = false; }
+        IEnumerator ReturnRoutine() { busy = true; TouchInput.Reset(); yield return Fade(0, 1, 0.7f); Ui.HideHud(); ShowGate(); yield return Fade(1, 0, 0.7f); busy = false; AdPolicy.TryShow(Save, true, Time.realtimeSinceStartup); }
 
         public void InteractNearest()
         {

@@ -14,6 +14,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Write runtime config (public values only, never committed)
+        env:
+          AI_PROXY_URL: ${{ secrets.AI_PROXY_URL }}
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          g = os.environ.get
+          cfg = {"aiProxyUrl": g("AI_PROXY_URL",""), "firebaseApiKey": g("FIREBASE_API_KEY",""), "firebaseProjectId": g("FIREBASE_PROJECT_ID",""), "supabaseUrl": g("SUPABASE_URL",""), "supabaseAnonKey": g("SUPABASE_ANON_KEY","")}
+          json.dump(cfg, open("Assets/Resources/runtime_config.json", "w"))
+          PY
       - uses: actions/cache@v4
         with:
           path: Library

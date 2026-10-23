@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 namespace TimeGate.Services
 {
     /// Honest stubs: nothing here pretends to be connected. Real SDK wiring needs your keys/files.
-    public interface IAdService { bool IsConfigured { get; } string Status { get; } }
+    public interface IAdService { bool IsConfigured { get; } string Status { get; } void ShowInterstitial(Action<bool> done); }
     public interface ICloudSync { bool IsConfigured { get; } string Status { get; } }
     public interface IAiGuide
     {
@@ -14,7 +14,7 @@ namespace TimeGate.Services
         IEnumerator Ask(string characterId, string question, string lang, Action<string> ok, Action<string> fail);
     }
 
-    public class NullAdService : IAdService { public bool IsConfigured => false; public string Status => "Start.io: needs App ID + SDK package (see docs/SERVICES.md)"; }
+    public class NullAdService : IAdService { public bool IsConfigured => false; public string Status => "Start.io: needs App ID + SDK package (see docs/SERVICES.md)"; public void ShowInterstitial(Action<bool> done) { done(false); } }
     public class NullCloudSync : ICloudSync { public bool IsConfigured => false; public string Status => "Firebase/Supabase: needs config files/keys (see docs/SERVICES.md)"; }
     public class NullAiGuide : IAiGuide
     {
@@ -22,7 +22,7 @@ namespace TimeGate.Services
         public IEnumerator Ask(string c, string q, string l, Action<string> ok, Action<string> fail) { fail("not configured"); yield break; }
     }
 
-    [Serializable] public class RuntimeConfig { public string aiProxyUrl; }
+    [Serializable] public class RuntimeConfig { public string aiProxyUrl; public string firebaseApiKey; public string firebaseProjectId; public string supabaseUrl; public string supabaseAnonKey; }
     [Serializable] class AiReq { public string characterId; public string question; public string lang; }
     [Serializable] class AiRes { public string answer; }
 
@@ -55,11 +55,16 @@ namespace TimeGate.Services
     {
         public static IAdService Ads = new NullAdService();
         public static ICloudSync Cloud = new NullCloudSync();
+        public static FirebaseRestSync Firebase;   // null until configured
+        public static SupabaseClient Supabase;     // null until configured
         public static IAiGuide Ai = new NullAiGuide();
         public static void LoadRuntimeConfig()
         {
             var ta = Resources.Load<TextAsset>("runtime_config"); if (ta == null) return;
-            try { var c = JsonUtility.FromJson<RuntimeConfig>(ta.text); if (c != null && !string.IsNullOrEmpty(c.aiProxyUrl) && c.aiProxyUrl.StartsWith("https://")) Ai = new AiProxyGuide(c.aiProxyUrl); }
+            try { var c = JsonUtility.FromJson<RuntimeConfig>(ta.text); if (c == null) return;
+                if (!string.IsNullOrEmpty(c.aiProxyUrl) && c.aiProxyUrl.StartsWith("https://")) Ai = new AiProxyGuide(c.aiProxyUrl);
+                if (!string.IsNullOrEmpty(c.firebaseApiKey) && !string.IsNullOrEmpty(c.firebaseProjectId)) { Firebase = new FirebaseRestSync(c.firebaseApiKey, c.firebaseProjectId); Cloud = Firebase; }
+                if (!string.IsNullOrEmpty(c.supabaseUrl) && c.supabaseUrl.StartsWith("https://") && !string.IsNullOrEmpty(c.supabaseAnonKey)) Supabase = new SupabaseClient(c.supabaseUrl, c.supabaseAnonKey); }
             catch (Exception e) { Debug.LogWarning("[TimeGate] runtime_config invalid: " + e.Message); }
         }
     }

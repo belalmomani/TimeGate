@@ -1,0 +1,43 @@
+{
+ "id": "jo_ajloun_ayyubid_v0",
+ "packVersion": "0.0.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "الأيوبيون",
+  "en": "Ayyubids"
+ },
+ "yearFrom": 1171,
+ "yearTo": 1260,
+ "periodConfidence": "approximate",
+ "status": "planned",
+ "sites": [
+  {
+   "id": "ajloun_castle",
+   "name": {
+    "ar": "قلعة عجلون (قلعة الربض)",
+    "en": "Ajloun Castle (Qal'at ar-Rabad)"
+   },
+   "region": {
+    "ar": "عجلون",
+    "en": "Ajloun"
+   },
+   "siteType": "castle",
+   "summary": {
+    "ar": "قلعة إسلامية من العصر الأيوبي — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "An Islamic castle from the Ayyubid period — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  }
+ ]
+}

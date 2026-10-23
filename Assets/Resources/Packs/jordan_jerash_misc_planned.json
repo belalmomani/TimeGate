@@ -1,0 +1,66 @@
+{
+ "id": "jo_jerash_misc_v0",
+ "packVersion": "0.0.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "جرش (فترات متعددة)",
+  "en": "Jerash (multiple periods)"
+ },
+ "yearFrom": 0,
+ "yearTo": 0,
+ "periodConfidence": "unknown",
+ "status": "planned",
+ "sites": [
+  {
+   "id": "jerash_west_amphitheatre",
+   "name": {
+    "ar": "المدرج الغربي",
+    "en": "Western amphitheatre (as listed)"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "ruins",
+   "summary": {
+    "ar": "بقايا معمارية من المدينة القديمة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Architectural remains of the ancient city — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_museum",
+   "name": {
+    "ar": "متحف جرش الأثري",
+    "en": "Jerash Archaeological Museum"
+   },
+   "region": {
+    "ar": "داخل الموقع الأثري",
+    "en": "Inside the archaeological site"
+   },
+   "siteType": "museum",
+   "summary": {
+    "ar": "قطع أثرية توثق تاريخ المدينة وحضاراتها — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Artefacts documenting the city's history and civilizations — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  }
+ ]
+}

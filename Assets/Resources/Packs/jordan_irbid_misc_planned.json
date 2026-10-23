@@ -1,0 +1,227 @@
+{
+ "id": "jo_irbid_misc_v0",
+ "packVersion": "0.0.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "مواقع إربد (فترات متعددة)",
+  "en": "Irbid-area sites (multiple periods)"
+ },
+ "yearFrom": 0,
+ "yearTo": 0,
+ "periodConfidence": "unknown",
+ "status": "planned",
+ "sites": [
+  {
+   "id": "tell_irbid",
+   "name": {
+    "ar": "تل إربد الأثري",
+    "en": "Tell Irbid"
+   },
+   "region": {
+    "ar": "مدينة إربد",
+    "en": "Irbid city"
+   },
+   "siteType": "tell",
+   "summary": {
+    "ar": "تل أثري يدل على تعاقب الاستيطان وشواهد على الاستيطان القديم — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "An archaeological mound showing successive settlement and evidence of ancient habitation — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "tabaqat_fahl",
+   "name": {
+    "ar": "طبقة فحل (بيلا)",
+    "en": "Tabaqat Fahl (Pella)"
+   },
+   "region": {
+    "ar": "الأغوار الشمالية",
+    "en": "Northern Jordan Valley"
+   },
+   "siteType": "ancient_city",
+   "summary": {
+    "ar": "مدينة أثرية تعود إلى عصور قديمة متعددة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "An archaeological city from several ancient eras — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "khirbet_irhab",
+   "name": {
+    "ar": "خربة إرحاب",
+    "en": "Khirbet Irhab"
+   },
+   "region": {
+    "ar": "إرحاب",
+    "en": "Irhab"
+   },
+   "siteType": "ruins",
+   "summary": {
+    "ar": "آثار قديمة وكنائس تاريخية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Ancient remains and historic churches — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "husn_site",
+   "name": {
+    "ar": "موقع الحصن الأثري",
+    "en": "Al-Husn archaeological site"
+   },
+   "region": {
+    "ar": "الحصن",
+    "en": "Al-Husn"
+   },
+   "siteType": "ruins",
+   "summary": {
+    "ar": "شواهد تاريخية وأثرية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Historical and archaeological evidence — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "tell_husn",
+   "name": {
+    "ar": "تل الحصن",
+    "en": "Tell al-Husn"
+   },
+   "region": {
+    "ar": "الحصن",
+    "en": "Al-Husn"
+   },
+   "siteType": "tell",
+   "summary": {
+    "ar": "بقايا استيطان قديم (قد يتداخل مع موقع الحصن أعلاه) — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Remains of ancient settlement (may overlap with the Al-Husn site above) — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "wadi_arab",
+   "name": {
+    "ar": "وادي العرب",
+    "en": "Wadi al-Arab"
+   },
+   "region": {
+    "ar": "غرب إربد",
+    "en": "West of Irbid"
+   },
+   "siteType": "archaeological_area",
+   "summary": {
+    "ar": "مواقع وشواهد أثرية متفرقة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Scattered archaeological sites and evidence — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "khirbet_zahr",
+   "name": {
+    "ar": "خربة زحر",
+    "en": "Khirbet Zahr"
+   },
+   "region": {
+    "ar": "قرب إربد",
+    "en": "Near Irbid"
+   },
+   "siteType": "ruins",
+   "summary": {
+    "ar": "بقايا أثرية قديمة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Ancient archaeological remains — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "tell_ashari",
+   "name": {
+    "ar": "تل الأشعري",
+    "en": "Tell al-Ash'ari"
+   },
+   "region": {
+    "ar": "شمال الأردن (يحتاج تحديد دقيق)",
+    "en": "Northern Jordan (location to be confirmed)"
+   },
+   "siteType": "tell",
+   "summary": {
+    "ar": "موقع أثري يحتاج إلى تحديد نطاقه الجغرافي بدقة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "An archaeological site whose exact geographic extent still has to be determined — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "khirbet_bait_ids",
+   "name": {
+    "ar": "خربة بيت إيدس",
+    "en": "Khirbet Bait Ids"
+   },
+   "region": {
+    "ar": "بيت إيدس",
+    "en": "Bait Ids"
+   },
+   "siteType": "ruins",
+   "summary": {
+    "ar": "شواهد أثرية ومعمارية قديمة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Ancient archaeological and architectural evidence — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  }
+ ]
+}

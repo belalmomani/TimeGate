@@ -17,6 +17,7 @@ namespace TimeGate.World
         static readonly Dictionary<string, Func<SiteDef, WorldResult>> map = new Dictionary<string, Func<SiteDef, WorldResult>>
         {
             ["petra_v1"] = PetraWorld.Build,
+            ["jerash_v1"] = JerashWorld.Build,
         };
         public static bool Has(string id) => !string.IsNullOrEmpty(id) && map.ContainsKey(id);
         public static WorldResult Build(string id, SiteDef site) => map[id](site);

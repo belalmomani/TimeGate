@@ -1,0 +1,227 @@
+{
+ "id": "jo_ajloun_misc_v0",
+ "packVersion": "0.0.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "مواقع عجلون (فترات متعددة)",
+  "en": "Ajloun sites (multiple periods)"
+ },
+ "yearFrom": 0,
+ "yearTo": 0,
+ "periodConfidence": "unknown",
+ "status": "planned",
+ "sites": [
+  {
+   "id": "ajloun_great_mosque",
+   "name": {
+    "ar": "المسجد الكبير",
+    "en": "Great Mosque of Ajloun"
+   },
+   "region": {
+    "ar": "مدينة عجلون",
+    "en": "Ajloun city"
+   },
+   "siteType": "mosque",
+   "summary": {
+    "ar": "معلم إسلامي تاريخي — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A historic Islamic landmark — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "our_lady_mountain",
+   "name": {
+    "ar": "كنيسة سيدة الجبل",
+    "en": "Our Lady of the Mountain Church"
+   },
+   "region": {
+    "ar": "عنجرة",
+    "en": "Anjara"
+   },
+   "siteType": "church",
+   "summary": {
+    "ar": "موقع ديني مسيحي — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A Christian religious site — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "khirbet_maqati",
+   "name": {
+    "ar": "خربة المقاطع",
+    "en": "Khirbet al-Maqati'"
+   },
+   "region": {
+    "ar": "قرب عبين ورأس منيف",
+    "en": "Near Abbin and Ras Munif"
+   },
+   "siteType": "ruins",
+   "summary": {
+    "ar": "بقايا أثرية من فترات تاريخية متعددة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Archaeological remains from several historical periods — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "khirbet_umm_zaytuna",
+   "name": {
+    "ar": "خربة أم زيتونة",
+    "en": "Khirbet Umm Zaytuna"
+   },
+   "region": {
+    "ar": "منطقة كفرنجة",
+    "en": "Kufranjah area"
+   },
+   "siteType": "ruins",
+   "summary": {
+    "ar": "موقع يضم شواهد ومدافن أثرية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A site with archaeological markers and burials — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "wardeh_cave",
+   "name": {
+    "ar": "مغارة وردة",
+    "en": "Wardeh Cave"
+   },
+   "region": {
+    "ar": "منطقة عجلون",
+    "en": "Ajloun area"
+   },
+   "siteType": "cave",
+   "summary": {
+    "ar": "موقع مرتبط بتاريخ استخراج خام الحديد — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A site linked to the history of iron-ore extraction — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "wadi_rayyan_sites",
+   "name": {
+    "ar": "المواقع الأثرية في وادي الريان",
+    "en": "Archaeological sites of Wadi Rayyan"
+   },
+   "region": {
+    "ar": "شمال المحافظة",
+    "en": "North of the governorate"
+   },
+   "siteType": "archaeological_area",
+   "summary": {
+    "ar": "شواهد على الاستيطان البشري القديم — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Evidence of ancient human settlement — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "kufranjah_sites",
+   "name": {
+    "ar": "المواقع الأثرية في كفرنجة",
+    "en": "Archaeological sites of Kufranjah"
+   },
+   "region": {
+    "ar": "كفرنجة",
+    "en": "Kufranjah"
+   },
+   "siteType": "archaeological_area",
+   "summary": {
+    "ar": "بقايا ومنشآت أثرية قديمة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Ancient archaeological remains and structures — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "rasoun_olive_press",
+   "name": {
+    "ar": "معصرة الزيتون القديمة",
+    "en": "Old olive press"
+   },
+   "region": {
+    "ar": "راسون",
+    "en": "Rasoun"
+   },
+   "siteType": "olive_press",
+   "summary": {
+    "ar": "شاهد على النشاط الزراعي التقليدي — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A witness to traditional agricultural activity — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "rasoun_old_church",
+   "name": {
+    "ar": "الكنيسة القديمة",
+    "en": "Old church"
+   },
+   "region": {
+    "ar": "راسون",
+    "en": "Rasoun"
+   },
+   "siteType": "church_ruins",
+   "summary": {
+    "ar": "بقايا معمارية ذات أهمية تاريخية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Architectural remains of historical importance — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  }
+ ]
+}

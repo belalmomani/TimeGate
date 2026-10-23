@@ -1,1 +1,7 @@
-{ "aiProxyUrl": "" }
+{
+  "aiProxyUrl": "",
+  "firebaseApiKey": "",
+  "firebaseProjectId": "",
+  "supabaseUrl": "",
+  "supabaseAnonKey": ""
+}

@@ -54,7 +54,7 @@ for f in list(root.rglob("*.cs"))+list(root.rglob("*.json"))+list(root.rglob("*.
 
 # crude C# structural check
 for f in (root/"Assets").rglob("*.cs"):
-    t = re.sub(r'"(\\.|[^"\\])*"|//[^\n]*', '', f.read_text(encoding="utf-8"))
+    t = re.sub(r"'(\\.|[^'\\])'", '', f.read_text(encoding="utf-8")); t = re.sub(r'"(\\.|[^"\\])*"|//[^\n]*', '', t)
     for a,b in ("{}","()","[]"):
         if t.count(a)!=t.count(b): err(f"{f.relative_to(root)}: unbalanced {a}{b} ({t.count(a)} vs {t.count(b)})")
 

@@ -1,0 +1,43 @@
+{
+ "id": "jo_irbid_byzantine_v0",
+ "packVersion": "0.0.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "البيزنطيون",
+  "en": "Byzantines"
+ },
+ "yearFrom": 324,
+ "yearTo": 636,
+ "periodConfidence": "approximate",
+ "status": "planned",
+ "sites": [
+  {
+   "id": "umm_qais_church",
+   "name": {
+    "ar": "كنيسة أم قيس",
+    "en": "Umm Qais Church"
+   },
+   "region": {
+    "ar": "أم قيس",
+    "en": "Umm Qais"
+   },
+   "siteType": "church_ruins",
+   "summary": {
+    "ar": "آثار دينية من العصر البيزنطي — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Religious remains from the Byzantine period — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  }
+ ]
+}

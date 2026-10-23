@@ -1,0 +1,432 @@
+{
+ "id": "jo_roman_v1",
+ "packVersion": "0.1.0",
+ "minAppVersion": "0.1.0",
+ "countryCode": "JO",
+ "country": {
+  "ar": "الأردن",
+  "en": "Jordan"
+ },
+ "civilization": {
+  "ar": "الرومان",
+  "en": "Romans"
+ },
+ "yearFrom": -63,
+ "yearTo": 400,
+ "periodConfidence": "approximate",
+ "status": "playable",
+ "sites": [
+  {
+   "id": "jerash",
+   "name": {
+    "ar": "جرش القديمة",
+    "en": "Ancient Jerash (Gerasa)"
+   },
+   "siteType": "ancient_city",
+   "summary": {
+    "ar": "جرش (جراسا قديمًا) مدينة يونانية-رومانية في شمال الأردن، ازدهرت في العصر الروماني وعُرفت بشارعها المعمّد وساحاتها ومعابدها.",
+    "en": "Jerash (ancient Gerasa) is a Greco-Roman city in northern Jordan that flourished in the Roman period, known for its colonnaded street, plazas and temples."
+   },
+   "confidence": "documented",
+   "playable": true,
+   "worldBuilder": "jerash_v1",
+   "pois": [
+    {
+     "id": "jerash_arch",
+     "name": {
+      "ar": "قوس هادريان",
+      "en": "Hadrian's Arch"
+     },
+     "summary": {
+      "ar": "بوابة احتفالية بُنيت في جرش نحو عام 130م تكريمًا لزيارة الإمبراطور هادريان للمدينة. التصميم هنا تقريبي مبني من أشكال أولية.",
+      "en": "A ceremonial gateway built at Jerash around 130 CE to honour the emperor Hadrian's visit. The design here is an approximate construction from primitive shapes."
+     },
+     "confidence": "approximate",
+     "x": 0.0,
+     "y": 6.0,
+     "z": -150.0,
+     "radius": 28.0
+    },
+    {
+     "id": "jerash_oval",
+     "name": {
+      "ar": "الساحة البيضاوية",
+      "en": "The Oval Plaza"
+     },
+     "summary": {
+      "ar": "ساحة مفتوحة بيضاوية الشكل يحيط بها رواق من الأعمدة، تقع عند بداية الشارع المعمّد، ويُنسب بناؤها تقريبًا إلى القرن الأول الميلادي. الأبعاد هنا تقريبية.",
+      "en": "An open oval plaza ringed by a colonnade at the start of the colonnaded street, roughly attributed to the 1st century CE. Dimensions here are approximate."
+     },
+     "confidence": "approximate",
+     "x": 0.0,
+     "y": 6.0,
+     "z": -85.0,
+     "radius": 40.0
+    },
+    {
+     "id": "jerash_cardo",
+     "name": {
+      "ar": "الشارع المعمّد (الكاردو)",
+      "en": "The Colonnaded Street (Cardo)"
+     },
+     "summary": {
+      "ar": "شارع رئيسي تصطف على جانبيه الأعمدة، يمتد في قلب المدينة بطول يقارب 800 م تقريبًا. النموذج هنا مختصر ومبسّط.",
+      "en": "The main street, lined with columns on both sides, running through the city for roughly 800 m. The model here is shortened and simplified."
+     },
+     "confidence": "approximate",
+     "x": 0.0,
+     "y": 6.0,
+     "z": 50.0,
+     "radius": 40.0
+    },
+    {
+     "id": "jerash_artemis",
+     "name": {
+      "ar": "معبد أرتميس",
+      "en": "Temple of Artemis"
+     },
+     "summary": {
+      "ar": "من أبرز معابد جرش، شُيّد تقريبًا في القرن الثاني الميلادي، وكانت أرتميس الإلهة الحامية للمدينة. المجسم هنا تقريبي.",
+      "en": "One of Jerash's major temples, built roughly in the 2nd century CE; Artemis was the city's patron goddess. The model here is approximate."
+     },
+     "confidence": "approximate",
+     "x": 0.0,
+     "y": 6.0,
+     "z": 175.0,
+     "radius": 32.0
+    }
+   ],
+   "quests": [
+    {
+     "id": "jerash_walk",
+     "title": {
+      "ar": "من القوس إلى المعبد",
+      "en": "From the Arch to the Temple"
+     },
+     "hint": {
+      "ar": "حلّق عبر جرش وافحص أربعة معالم.",
+      "en": "Fly through Jerash and inspect four landmarks."
+     },
+     "objectivePoiIds": [
+      "jerash_arch",
+      "jerash_oval",
+      "jerash_cardo",
+      "jerash_artemis"
+     ]
+    }
+   ],
+   "characters": [],
+   "references": [
+    {
+     "title": "Encyclopaedia Britannica — Jerash",
+     "url": "https://www.britannica.com/place/Jerash",
+     "retrieved": "",
+     "verified": false
+    }
+   ],
+   "region": {
+    "ar": "جرش",
+    "en": "Jerash"
+   }
+  },
+  {
+   "id": "rasoun_roman_tombs",
+   "name": {
+    "ar": "المقابر الرومانية",
+    "en": "Roman tombs"
+   },
+   "region": {
+    "ar": "راسون",
+    "en": "Rasoun"
+   },
+   "siteType": "tombs",
+   "summary": {
+    "ar": "مدافن تاريخية تعود إلى فترات قديمة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Historic burials from ancient periods — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_temple_zeus",
+   "name": {
+    "ar": "معبد زيوس",
+    "en": "Temple of Zeus"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "temple",
+   "summary": {
+    "ar": "معبد روماني على مرتفع أثري — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A Roman temple on an archaeological rise — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_south_theatre",
+   "name": {
+    "ar": "المسرح الجنوبي",
+    "en": "South Theatre"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "theatre",
+   "summary": {
+    "ar": "مسرح روماني كبير للعروض والفعاليات — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A large Roman theatre for performances and events — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_north_theatre",
+   "name": {
+    "ar": "المسرح الشمالي",
+    "en": "North Theatre"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "theatre",
+   "summary": {
+    "ar": "مسرح روماني استُخدم للعروض والاجتماعات — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A Roman theatre used for performances and meetings — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_south_gate",
+   "name": {
+    "ar": "البوابة الجنوبية",
+    "en": "South Gate"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "gate",
+   "summary": {
+    "ar": "إحدى بوابات المدينة القديمة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "One of the gates of the ancient city — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_north_gate",
+   "name": {
+    "ar": "البوابة الشمالية",
+    "en": "North Gate"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "gate",
+   "summary": {
+    "ar": "بوابة تاريخية للمدينة الرومانية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A historic gate of the Roman city — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_nymphaeum",
+   "name": {
+    "ar": "سبيل الحوريات (النيمفيوم)",
+    "en": "Nymphaeum (Fountain of the Nymphs)"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "fountain",
+   "summary": {
+    "ar": "نافورة عامة رومانية مزخرفة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A decorated Roman public fountain — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_east_baths",
+   "name": {
+    "ar": "الحمامات الشرقية",
+    "en": "East Baths"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "baths",
+   "summary": {
+    "ar": "منشآت استحمام رومانية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Roman bathing facilities — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "jerash_west_baths",
+   "name": {
+    "ar": "الحمامات الغربية",
+    "en": "West Baths"
+   },
+   "region": {
+    "ar": "جرش الأثرية",
+    "en": "Jerash archaeological site"
+   },
+   "siteType": "baths",
+   "summary": {
+    "ar": "منشآت عامة تعكس الحياة اليومية الرومانية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Public facilities reflecting everyday Roman life — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "bait_ras",
+   "name": {
+    "ar": "بيت راس الأثري (كابيتولياس)",
+    "en": "Bait Ras (Capitolias)"
+   },
+   "region": {
+    "ar": "بيت راس",
+    "en": "Bait Ras"
+   },
+   "siteType": "ancient_city",
+   "summary": {
+    "ar": "مدينة رومانية قديمة — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "An ancient Roman city — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "bait_ras_baths",
+   "name": {
+    "ar": "الحمامات الرومانية",
+    "en": "Roman baths"
+   },
+   "region": {
+    "ar": "بيت راس",
+    "en": "Bait Ras"
+   },
+   "siteType": "baths",
+   "summary": {
+    "ar": "بقايا منشآت رومانية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "Remains of Roman structures — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "umm_qais",
+   "name": {
+    "ar": "أم قيس (جدارا)",
+    "en": "Umm Qais (Gadara)"
+   },
+   "region": {
+    "ar": "أم قيس",
+    "en": "Umm Qais"
+   },
+   "siteType": "ancient_city",
+   "summary": {
+    "ar": "مدينة يونانية رومانية تضم مسارح وأعمدة وآثارًا معمارية — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "A Greco-Roman city with theatres, columns and architectural remains — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  },
+  {
+   "id": "umm_qais_west_theatre",
+   "name": {
+    "ar": "المسرح الغربي",
+    "en": "West Theatre"
+   },
+   "region": {
+    "ar": "أم قيس",
+    "en": "Umm Qais"
+   },
+   "siteType": "theatre",
+   "summary": {
+    "ar": "مسرح روماني أثري — معلومات أولية قدّمها صاحب المشروع ولم تُراجع بمصادر بعد. الموقع قيد التطوير ولا عالم له حاليًا.",
+    "en": "An archaeological Roman theatre — Preliminary information supplied by the project owner, not yet checked against sources. In development; no world yet."
+   },
+   "confidence": "approximate",
+   "playable": false,
+   "worldBuilder": "",
+   "pois": [],
+   "quests": [],
+   "characters": [],
+   "references": []
+  }
+ ]
+}

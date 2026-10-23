@@ -83,8 +83,8 @@ namespace TimeGate.World
             if (site.characters != null)
                 foreach (var c in site.characters)
                 {
-                    var t = NpcBuilder.Build(c, new Vector3(c.x, Height(c.x, c.z), c.z), root.transform);
-                    res.npcs.Add(new NpcRuntime { def = c, t = t });
+                    var npcTf = NpcBuilder.Build(c, new Vector3(c.x, Height(c.x, c.z), c.z), root.transform);
+                    res.npcs.Add(new NpcRuntime { def = c, t = npcTf });
                 }
             return res;
         }
@@ -113,7 +113,7 @@ namespace TimeGate.World
                 Fx.Prim(PrimitiveType.Cylinder, T, new Vector3(x, 19f, 0f), new Vector3(1.3f, 3.2f, 1.3f), m, "UpperColumn");
         }
 
-        static AudioClip MakeWind()
+        internal static AudioClip MakeWind()
         {
             const int rate = 22050, n = rate * 6; var d = new float[n]; var rnd = new System.Random(5); float lp = 0, lp2 = 0;
             for (int i = 0; i < n; i++)

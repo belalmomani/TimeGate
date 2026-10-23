@@ -12,3 +12,5 @@ GoogleService-Info.plist
 .env
 *.apk
 *.aab
+Assets/Resources/runtime_config.json
+Assets/Resources/runtime_config.json.meta

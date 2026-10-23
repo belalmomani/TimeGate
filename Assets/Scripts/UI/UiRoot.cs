@@ -74,17 +74,21 @@ namespace TimeGate.UI
             HideHud(); var p = NewPanel(Loc.T("title"), null);
             p.Add(Lbl(Loc.T("subtitle"), 30, Palette.Energy));
             if (FontMissing) p.Add(Lbl("Arabic font missing: add a TTF at Assets/Resources/Fonts", 24, Color.yellow));
-            p.Add(Btn("🎲 " + Loc.T("random"), RandomScreen));
+            p.Add(Btn(Loc.T("random"), RandomScreen));
             p.Add(Btn(Loc.T("byCountry"), () => CountryList(ShowHome)));
             p.Add(Btn(Loc.T("byCiv"), () => CivList(ShowHome)));
+            p.Add(Btn(Loc.T("byPeriod"), PeriodScreen));
+            p.Add(Btn(Loc.T("achievements"), AchievementsScreen, false));
             p.Add(Btn(Loc.T("history"), HistoryScreen, false));
             p.Add(Btn(Loc.T("favorites"), FavoritesScreen, false));
+            p.Add(Btn(Loc.T("account"), AccountScreen, false));
             p.Add(Btn(Loc.T("settings"), SettingsScreen, false));
             p.Add(Btn(Loc.T("about"), AboutScreen, false));
         }
 
         string Period(PackManifest p)
         {
+            if (p.periodConfidence == "unknown") return Loc.T("periodUnknown");
             string F(int y) => y < 0 ? (Loc.IsRtl ? (-y) + " ق.م" : (-y) + " BCE") : (Loc.IsRtl ? y + " م" : y + " CE");
             string conf = p.periodConfidence == "approximate" ? (Loc.IsRtl ? " (تقريبًا)" : " (approx.)") : "";
             return F(p.yearFrom) + " – " + F(p.yearTo) + conf;
@@ -112,7 +116,7 @@ namespace TimeGate.UI
                     result.Add(Btn(Loc.T("reroll"), Roll, false));
                 });
             }
-            p.Add(Lbl("", 10)); result.Add(Btn("🎲 " + Loc.T("roll"), Roll));
+            p.Add(Lbl("", 10)); result.Add(Btn(Loc.T("roll"), Roll));
         }
 
         void CountryList(Action back)
@@ -147,6 +151,7 @@ namespace TimeGate.UI
             var p = NewPanel(Loc.Pick(st.name), back); bool ok = DestinationRegistry.IsAvailable(pk, st);
             p.Add(Lbl(Loc.T("country") + ": " + Loc.Pick(pk.country) + "  |  " + Loc.T("civ") + ": " + Loc.Pick(pk.civilization), 26, Palette.Energy));
             p.Add(Lbl(Loc.T("period") + ": " + Period(pk), 26, Palette.Energy));
+            if (st.region != null && !string.IsNullOrEmpty(st.region.ar)) p.Add(Lbl(Loc.T("region") + ": " + Loc.Pick(st.region), 26, Palette.Energy));
             p.Add(Lbl("● " + Conf(st.confidence), 26, Palette.Gold));
             p.Add(Lbl(Loc.Pick(st.summary), 30));
             if (ok) { p.Add(Lbl(Loc.T("placeholderNote"), 24, Color.yellow)); p.Add(Lbl(Loc.T("bundled"), 22, Palette.Energy)); }
@@ -163,6 +168,41 @@ namespace TimeGate.UI
             p.Add(Btn(Loc.T("travel"), () => app.BeginTravel(pk, st), true, ok));
             bool fav = app.Save.IsFavorite(st.id);
             p.Add(Btn(fav ? Loc.T("unfav") : Loc.T("fav"), () => { app.Save.ToggleFavorite(st.id); SiteDetail(pk, st, back); }, false));
+        }
+        int periodYear = 100;
+        static string YearStr(int y) => y < 0 ? (Loc.IsRtl ? (-y) + " ق.م" : (-y) + " BCE") : (Loc.IsRtl ? y + " م" : y + " CE");
+        void PeriodScreen()
+        {
+            var p = NewPanel(Loc.T("byPeriod"), ShowHome);
+            p.Add(Lbl(Loc.T("year") + ": " + YearStr(periodYear), 46, Palette.Gold, true));
+            var row = new VisualElement(); row.style.flexDirection = FlexDirection.Row; row.style.flexWrap = Wrap.Wrap; row.style.justifyContent = Justify.Center;
+            foreach (int step in new[] { -500, -100, -10, 10, 100, 500 })
+            {
+                int st0 = step;
+                var b = SmallBtn((st0 > 0 ? "+" : "") + st0, () => { periodYear = Mathf.Clamp(periodYear + st0, -3000, 2100); if (periodYear == 0) periodYear = st0 > 0 ? 1 : -1; PeriodScreen(); });
+                b.style.marginBottom = 6; row.Add(b);
+            }
+            p.Add(row); p.Add(Lbl(Loc.T("yearNote"), 22, Color.yellow));
+            var list = app.Registry.AllSites().Where(t => t.pack.yearFrom <= periodYear && periodYear <= t.pack.yearTo).ToList();
+            if (list.Count == 0) p.Add(Lbl(Loc.T("noSitesYear"), 28));
+            foreach (var (pk, st) in list)
+            {
+                bool ok = DestinationRegistry.IsAvailable(pk, st);
+                p.Add(Btn(Loc.Pick(st.name) + " — " + Loc.Pick(pk.civilization) + (ok ? "" : "  [" + Loc.T("inDev") + "]"), () => SiteDetail(pk, st, PeriodScreen), ok, true));
+            }
+        }
+        void AchievementsScreen()
+        {
+            var p = NewPanel(Loc.T("achievements"), ShowHome); var d = app.Save.Data;
+            void Row(bool done, string ar, string en) { p.Add(Lbl((done ? "★ " : "☆ ") + (Loc.IsRtl ? ar : en), 30, done ? Palette.Gold : Palette.Text)); }
+            Row(d.visits.Count >= 1, "أول رحلة عبر البوابة", "First trip through the gate");
+            Row(d.visits.Count >= 5, "خمس رحلات", "Five trips");
+            Row(d.visits.Any(v => v.siteId == "petra"), "زيارة البتراء", "Visited Petra");
+            Row(d.visits.Any(v => v.siteId == "jerash"), "زيارة جرش", "Visited Jerash");
+            Row(d.inspectedPois.Contains("petra_khazneh"), "فحص الخزنة", "Inspected the Treasury");
+            Row(d.completedQuests.Contains("petra_walk_siq"), "مهمة البتراء", "Petra quest");
+            Row(d.completedQuests.Contains("jerash_walk"), "مهمة جرش", "Jerash quest");
+            Row(d.favorites.Count >= 1, "أول موقع مفضّل", "First favorite");
         }
         void HistoryScreen()
         {
@@ -193,6 +233,10 @@ namespace TimeGate.UI
             var row = new VisualElement(); row.style.flexDirection = FlexDirection.Row; row.style.justifyContent = Justify.Center;
             row.Add(SmallBtn("−", () => { d.sensitivity = Mathf.Max(0.25f, d.sensitivity - 0.25f); app.ApplySettings(); SettingsScreen(); }));
             row.Add(SmallBtn("+", () => { d.sensitivity = Mathf.Min(3f, d.sensitivity + 0.25f); app.ApplySettings(); SettingsScreen(); })); p.Add(row);
+            p.Add(Lbl(Loc.T("volume") + ": " + Mathf.RoundToInt(d.volume * 100f) + "%", 30));
+            var vrow = new VisualElement(); vrow.style.flexDirection = FlexDirection.Row; vrow.style.justifyContent = Justify.Center;
+            vrow.Add(SmallBtn("−", () => { d.volume = Mathf.Max(0f, d.volume - 0.25f); app.ApplySettings(); SettingsScreen(); }));
+            vrow.Add(SmallBtn("+", () => { d.volume = Mathf.Min(1f, d.volume + 0.25f); app.ApplySettings(); SettingsScreen(); })); p.Add(vrow);
             p.Add(Btn(Loc.T("invertY") + ": " + (d.invertY ? "ON" : "OFF"), () => { d.invertY = !d.invertY; app.ApplySettings(); SettingsScreen(); }, false));
             p.Add(Btn(Loc.T("reduceFx") + ": " + (d.reduceEffects ? "ON" : "OFF"), () => { d.reduceEffects = !d.reduceEffects; app.ApplySettings(); SettingsScreen(); }, false));
             string[] q = { "low", "med", "high" }; string[] qa = { "منخفضة", "متوسطة", "عالية" };
@@ -200,10 +244,48 @@ namespace TimeGate.UI
             p.Add(Lbl(Loc.T("services"), 34, Palette.Gold, true));
             p.Add(Lbl(ServiceHub.Ads.Status, 22)); p.Add(Lbl(ServiceHub.Cloud.Status, 22)); p.Add(Lbl(ServiceHub.Ai.Status, 22));
         }
+        TextField Field(string placeholderKey, bool pw)
+        {
+            var tf = new TextField(); tf.isPasswordField = pw; tf.maxLength = 120; tf.label = ""; tf.style.fontSize = 28; tf.style.color = Palette.Text; tf.style.minHeight = 64; tf.style.marginTop = 8;
+            if (font != null) tf.style.unityFontDefinition = new StyleFontDefinition(FontDefinition.FromFont(font));
+            tf.style.unityTextGenerator = TextGeneratorType.Advanced;
+            tf.schedule.Execute(() => { var input = tf.Q(className: "unity-base-text-field__input"); if (input != null) { input.style.backgroundColor = new Color(0.05f, 0.12f, 0.2f, 1f); input.style.color = Palette.Text; } });
+            return tf;
+        }
+        bool confirmDelete;
+        void AccountScreen()
+        {
+            var p = NewPanel(Loc.T("account"), ShowHome); var fb = ServiceHub.Firebase;
+            if (fb == null) { p.Add(Lbl(Loc.T("cloudOff"), 28)); p.Add(Lbl(ServiceHub.Cloud.Status, 22, Palette.Energy)); return; }
+            var status = Lbl(fb.Status, 24, Palette.Energy); p.Add(status);
+            void Result(string err) { confirmDelete = false; status.text = err == null ? Loc.T("ok") : err; }
+            if (!fb.SignedIn)
+            {
+                var em = Field("email", false); var pw = Field("password", true);
+                p.Add(Lbl(Loc.T("email"), 24)); p.Add(em); p.Add(Lbl(Loc.T("password"), 24)); p.Add(pw);
+                p.Add(Btn(Loc.T("signIn"), () => { status.text = Loc.T("working"); app.StartCoroutine(fb.SignIn(em.value.Trim(), pw.value, false, e => { Result(e); if (e == null) AccountScreen(); })); }));
+                p.Add(Btn(Loc.T("signUp"), () => { status.text = Loc.T("working"); app.StartCoroutine(fb.SignIn(em.value.Trim(), pw.value, true, e => { Result(e); if (e == null) AccountScreen(); })); }, false));
+            }
+            else
+            {
+                p.Add(Btn(Loc.T("syncNow"), () => { status.text = Loc.T("working"); app.StartCoroutine(fb.Sync(app.Save, Result)); }));
+                p.Add(Btn(Loc.T("signOut"), () => { fb.SignOut(); AccountScreen(); }, false));
+                p.Add(Btn(Loc.T("deleteAcc"), () =>
+                {
+                    if (!confirmDelete) { confirmDelete = true; status.text = Loc.T("confirmDel"); return; }
+                    status.text = Loc.T("working"); app.StartCoroutine(fb.DeleteAccount(e => { Result(e); if (e == null) AccountScreen(); }));
+                }, false));
+            }
+        }
         void AboutScreen()
         {
             var p = NewPanel(Loc.T("about"), ShowHome);
             p.Add(Lbl("TimeGate v" + Application.version + "  (" + Application.identifier + ")", 26, Palette.Energy));
+            if (ServiceHub.Supabase != null)
+            {
+                var info = Lbl("", 24, Palette.Energy);
+                p.Add(Btn(Loc.T("updates"), () => { info.text = Loc.T("working"); app.StartCoroutine(ServiceHub.Supabase.PublishedPacks(l => info.text = string.Join("\n", l), e => info.text = e)); }, false)); p.Add(info);
+            }
             p.Add(Lbl("3D geometry: procedural (no third-party models yet).\nFont: DejaVu Sans (free license; docs/DejaVu-LICENSE.txt).\nWind audio: generated in code.\nSee docs/ASSETS.md for the asset register.", 26));
         }
 
@@ -239,7 +321,7 @@ namespace TimeGate.UI
             // top bar
             var top = new VisualElement(); top.style.position = Position.Absolute; top.style.top = 20; top.style.left = 20; top.style.right = 20; top.style.flexDirection = FlexDirection.Row; top.pickingMode = PickingMode.Ignore; hud.Add(top);
             top.Add(SmallBtn("⟲ " + Loc.T("gate"), () => app.ReturnToGate()));
-            top.Add(SmallBtn("👁 " + Loc.T("camView"), () => app.ToggleView()));
+            top.Add(SmallBtn(Loc.T("camView"), () => app.ToggleView()));
             top.Add(SmallBtn("◎ " + Loc.T("camReset"), () => app.ResetCam()));
             questLabel = Lbl("", 26, Palette.Gold, true); questLabel.style.marginLeft = 16; questLabel.style.flexShrink = 1; top.Add(questLabel);
             toast = Lbl("", 34, Color.yellow, true); toast.style.position = Position.Absolute; toast.style.top = 110; toast.style.left = 0; toast.style.right = 0; toast.style.unityTextAlign = TextAnchor.MiddleCenter; hud.Add(toast);
@@ -308,6 +390,16 @@ namespace TimeGate.UI
             tf.schedule.Execute(() => { var input = tf.Q(className: "unity-base-text-field__input"); if (input != null) { input.style.backgroundColor = new Color(0.05f, 0.12f, 0.2f, 1f); input.style.color = Palette.Text; } });
             row.Add(SmallBtn(Loc.T("send"), () => { var q = tf.value; tf.value = ""; Ask(q); }));
             card.Add(Btn(Loc.T("close"), () => { popup.RemoveFromHierarchy(); popup = null; onClose(); }));
+        }
+        public void ShowConsent(Action<bool> result)
+        {
+            if (popup != null) popup.RemoveFromHierarchy();
+            popup = Abs(); popup.style.backgroundColor = new Color(0, 0, 0, 0.7f); popup.style.alignItems = Align.Center; popup.style.justifyContent = Justify.Center; root.Add(popup); fade.BringToFront();
+            var card = new VisualElement(); card.style.width = 1000; card.style.backgroundColor = Palette.Panel;
+            card.style.paddingTop = card.style.paddingBottom = card.style.paddingLeft = card.style.paddingRight = 36; popup.Add(card);
+            card.Add(Lbl(Loc.T("consentTitle"), 48, Palette.Gold, true)); card.Add(Lbl(Loc.T("consentBody"), 30));
+            card.Add(Btn(Loc.T("accept"), () => { popup.RemoveFromHierarchy(); popup = null; result(true); }));
+            card.Add(Btn(Loc.T("decline"), () => { popup.RemoveFromHierarchy(); popup = null; result(false); }, false));
         }
         public void SetFade(float a, Color c) { fade.style.backgroundColor = c; fade.style.opacity = a; fade.pickingMode = a > 0.01f ? PickingMode.Position : PickingMode.Ignore; }
     }
